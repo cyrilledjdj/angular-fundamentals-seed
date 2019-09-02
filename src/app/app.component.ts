@@ -16,7 +16,9 @@ interface Passenger {
             'checked-in' : passenger.checkedIn,
             'checked-out' : !passenger.checkedIn
           }"></span>
-        {{i}}: {{passenger.fullname}} {{ e + ' ' + o + ' ' + f + ' ' + l}}
+          <span class=status [style.backgroundColor]="passenger.checkedIn ? '#2ecc71': '#c0392b'"></span>
+          <span class=status [ngStyle]="{backgroundColor: passenger.checkedIn ? '#2ecc71': '#c0392b'}"></span>
+          {{i}}: {{passenger.fullname}} {{ e + ' ' + o + ' ' + f + ' ' + l}}
         </li>
       </ul>
   </div>
