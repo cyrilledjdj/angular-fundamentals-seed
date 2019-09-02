@@ -11,16 +11,13 @@ interface Passenger {
       <h3>Airline Passengers</h3>
       <ul>
         <li *ngFor="let passenger of passengers; let i = index; let e = even; let o = odd; let f = first; let l = last">
-          {{i}}: {{passenger.fullname}} {{ e + ' ' + o + ' ' + f + ' ' + l}}
+          <span class=status [class.checked-in]=passenger.checkedIn></span>
+          <span class=status [ngClass]="{
+            'checked-in' : passenger.checkedIn,
+            'checked-out' : !passenger.checkedIn
+          }"></span>
+        {{i}}: {{passenger.fullname}} {{ e + ' ' + o + ' ' + f + ' ' + l}}
         </li>
-      </ul>
-      <h3>Airline Passengers Template</h3>
-      <ul>
-      <ng-template ngFor let-passenger [ngForOf]="passengers" let-i="index" let-e="even" let-o="odd" let-f="first" let-l="last">
-        <li>
-          {{i}}: {{passenger.fullname}} {{ e + ' ' + o + ' ' + f + ' ' + l}}
-        </li>
-        </ng-template>
       </ul>
   </div>
   `,
