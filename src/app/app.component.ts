@@ -1,34 +1,57 @@
 import { Component } from '@angular/core';
-
+interface Passenger {
+  id: number;
+  fullname: string;
+  checkedIn: boolean;
+}
 @Component({
   selector: 'app-root',
-  template: `
+  template: /*html*/`
   <div class="app">
-      <button (click)="handleClick()">Reset</button>
-      <input type=text (input)="handleChange($event.target.value)">
-      <ng-template [ngIf]="name.length> 2">
-      <div>Search for... {{name}}</div>
-      </ng-template>
-      <div *ngIf="name.length > 2">Search for... {{name}}</div>
+      <h3>Airline Passengers</h3>
+      <ul>
+        <li *ngFor="let passenger of passengers; let i = index; let e = even; let o = odd; let f = first; let l = last">
+          {{i}}: {{passenger.fullname}} {{ e + ' ' + o + ' ' + f + ' ' + l}}
+        </li>
+      </ul>
+      <h3>Airline Passengers Template</h3>
+      <ul>
+      <ng-template ngFor let-passenger [ngForOf]="passengers" let-i="index" let-e="even" let-o="odd" let-f="first" let-l="last">
+        <li>
+          {{i}}: {{passenger.fullname}} {{ e + ' ' + o + ' ' + f + ' ' + l}}
+        </li>
+        </ng-template>
+      </ul>
   </div>
   `,
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title: string;
-  numberOne = 1;
-  numberTwo = 2;
-  isHappy = true;
-  name = '';
-  logo = 'assets/img/logo.svg';
-  constructor() {
-    this.title = 'Ultimate Angular';
-  }
-
-  handleChange(val: string | undefined) {
-    this.name = val;
-  }
-  handleClick() {
-    this.name = '';
-  }
+  passengers: Passenger[] = [
+    {
+      id: 1,
+      fullname: 'Stephen',
+      checkedIn: true
+    },
+    {
+      id: 2,
+      fullname: 'Rose',
+      checkedIn: false
+    },
+    {
+      id: 3,
+      fullname: 'James',
+      checkedIn: true
+    },
+    {
+      id: 4,
+      fullname: 'Louise',
+      checkedIn: true
+    },
+    {
+      id: 5,
+      fullname: 'Tina',
+      checkedIn: false
+    }
+  ];
 }
