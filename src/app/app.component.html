@@ -1,7 +1,6 @@
 <div class="app">
     <button (click)="handleClick()">Change name (Reset)</button>
-    <input [ngModel]=name type="text" (ngModelChange)="handleChange($event)">
-    <input [(ngModel)]=name type="text">
+    <input>
     <div>{{name}}</div>
 </div>
 

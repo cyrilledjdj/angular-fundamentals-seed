@@ -2,7 +2,13 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: `
+  <div class="app">
+      <button (click)="handleClick(username.value)">Change name (Reset)</button>
+      <input type=text #username>
+      <div>{{name}}</div>
+  </div>
+  `,
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
@@ -16,11 +22,9 @@ export class AppComponent {
     this.title = 'Ultimate Angular';
   }
 
-  handleChange(value: string) {
-    this.name = value;
-  }
 
-  handleClick() {
+  handleClick(val) {
     this.name = 'Cyrille';
+    console.log(val);
   }
 }
