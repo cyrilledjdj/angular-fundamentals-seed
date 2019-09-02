@@ -23,4 +23,8 @@ export class AppComponent {
   handleInput(event: Event) {
     this.name = (event.target as HTMLInputElement).value;
   }
+
+  handleClick() {
+    this.name = 'Cyrille';
+  }
 }
