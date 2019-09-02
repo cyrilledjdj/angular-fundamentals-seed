@@ -15,4 +15,12 @@ export class AppComponent {
   constructor() {
     this.title = 'Ultimate Angular';
   }
+
+  handleBlur(event: Event) {
+    this.name = (event.target as HTMLInputElement).value;
+  }
+
+  handleInput(event: Event) {
+    this.name = (event.target as HTMLInputElement).value;
+  }
 }

@@ -8,6 +8,7 @@
     {{isHappy ? ':)' : ':('}}
 </div>
 <img [src]="logo" alt="Ultimate Angular">
-<input type="text" [value]="name">
+<input type="text" [value]="name" (input)="handleInput($event)"
+    (blur)=handleBlur($event)>
 <div>{{name}}</div>
 <router-outlet></router-outlet>
