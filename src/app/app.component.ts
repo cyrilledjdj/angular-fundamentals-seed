@@ -10,6 +10,8 @@ export class AppComponent {
   numberOne = 1;
   numberTwo = 2;
   isHappy = true;
+  name = 'Cyrille';
+  logo = 'assets/img/logo.svg';
   constructor() {
     this.title = 'Ultimate Angular';
   }

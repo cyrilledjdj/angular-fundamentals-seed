@@ -1,8 +1,13 @@
-<div class="app" [innerHTML]="title"></div>
+<h1>
+    <div class="app" [innerHTML]="title"></div>
+</h1>
 <div>
     {{numberOne + numberTwo}}
 </div>
 <div>
     {{isHappy ? ':)' : ':('}}
 </div>
+<img [src]="logo" alt="Ultimate Angular">
+<input type="text" [value]="name">
+<div>{{name}}</div>
 <router-outlet></router-outlet>
