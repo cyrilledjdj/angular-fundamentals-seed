@@ -1,15 +1,8 @@
-<h1>
-    <div class="app" [innerHTML]="title"></div>
-</h1>
-<div>
-    {{numberOne + numberTwo}}
+<div class="app">
+    <button (click)="handleClick()">Change name (Reset)</button>
+    <input [ngModel]=name type="text" (ngModelChange)="handleChange($event)">
+    <input [(ngModel)]=name type="text">
+    <div>{{name}}</div>
 </div>
-<div>
-    {{isHappy ? ':)' : ':('}}
-</div>
-<img [src]="logo" alt="Ultimate Angular">
-<button (click)="handleClick()">Change name (Reset)</button>
-<input type="text" [value]="name" (input)="handleInput($event)"
-    (blur)=handleBlur($event)>
-<div>{{name}}</div>
+
 <router-outlet></router-outlet>
