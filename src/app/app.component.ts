@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title: string;
+  numberOne = 1;
+  numberTwo = 2;
+  isHappy = true;
   constructor() {
     this.title = 'Ultimate Angular';
   }
