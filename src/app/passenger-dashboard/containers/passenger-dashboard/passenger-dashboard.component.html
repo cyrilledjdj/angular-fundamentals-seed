@@ -1,0 +1,22 @@
+<div>
+    <h3>Airline Passengers</h3>
+    <ul>
+        <li *ngFor="let passenger of passengers; let i = index; let e = even; let o = odd; let f = first; let l = last">
+            <span class=status [class.checked-in]=passenger.checkedIn></span>
+            <span *ngIf=false class=status
+                [ngClass]="{ 'checked-in' : passenger.checkedIn, 'checked-out' : !passenger.checkedIn }"></span>
+            <span *ngIf=false class=status [style.backgroundColor]="passenger.checkedIn ? '#2ecc71': '#c0392b'"></span>
+            <span *ngIf=false class=status
+                [ngStyle]="{backgroundColor: passenger.checkedIn ? '#2ecc71': '#c0392b'}"></span>
+            {{i}}: {{passenger.fullname}} {{ e + ' ' + o + ' ' + f + ' ' + l}}
+            <p> {{passenger | json}} </p>
+            <div class=date>
+                Check in date:
+                {{passenger.checkInDate ? (passenger.checkInDate | date: 'MMMM d, y' | uppercase) : 'Not Checked In'}}
+            </div>
+            <div class=children>
+                Children: {{passenger.children?.length || 0}}
+            </div>
+        </li>
+    </ul>
+</div>
