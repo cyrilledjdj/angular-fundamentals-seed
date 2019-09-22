@@ -13,12 +13,14 @@
       true,
       "attribute",
       "app",
+      "passenger",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
       "app",
+      "passenger",
       "kebab-case"
     ],
     "import-blacklist": [
