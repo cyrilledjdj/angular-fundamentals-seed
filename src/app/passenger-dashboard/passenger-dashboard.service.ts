@@ -4,7 +4,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-const PASSENGER_API = 'assets/db.json';
+const PASSENGER_API = 'http://localhost:3000/passengers';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,38 +14,17 @@ export class PassengerDashboardService {
   }
 
   getPassengers(): Observable<Passenger[]> {
-    /* return [{
-      id: 1,
-      fullname: 'Stephen',
-      checkedIn: true,
-      checkInDate: 1490742000000,
-      children: null
-    }, {
-      id: 2,
-      fullname: 'Rose',
-      checkedIn: false,
-      checkInDate: null,
-      children: [{ name: 'Ted', age: 12 }, { name: 'Chloe', age: 7 }]
-    }, {
-      id: 3,
-      fullname: 'James',
-      checkedIn: true,
-      checkInDate: 1491606000000,
-      children: null
-    }, {
-      id: 4,
-      fullname: 'Louise',
-      checkedIn: true,
-      checkInDate: 1488412800000,
-      children: [{ name: 'Jessica', age: 1 }]
-    }, {
-      id: 5,
-      fullname: 'Tina',
-      checkedIn: false,
-      checkInDate: null,
-      children: null
-    }]; */
     return this.httpService
       .get<Passenger[]>(PASSENGER_API, { responseType: 'json' });
+  }
+
+  updatePassenger(passenger: Passenger): Observable<Passenger> {
+    return this.httpService
+      .put<Passenger>(`${PASSENGER_API}/${passenger.id}`, passenger, { responseType: 'json' });
+  }
+
+  removePassenger(passenger: Passenger): Observable<Passenger> {
+    return this.httpService
+      .delete<Passenger>(`${PASSENGER_API}/${passenger.id}`, { responseType: 'json' });
   }
 }

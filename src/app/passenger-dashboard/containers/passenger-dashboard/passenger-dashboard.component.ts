@@ -20,15 +20,20 @@ export class PassengerDashboardComponent implements OnInit {
   }
 
   handleRemove(ev: Passenger) {
-    this.passengers = this.passengers.filter((passenger: Passenger) => passenger.id !== ev.id);
+    this.passengerService.removePassenger(ev)
+      .subscribe(_ => {
+        this.passengers = this.passengers.filter((passenger: Passenger) => passenger.id !== ev.id);
+      });
   }
   handleEdit(ev: Passenger) {
-    this.passengers = this.passengers.map((passenger: Passenger) => {
-      if (passenger.id === ev.id) {
-        // passenger = ev; // Works the same
-        passenger = Object.assign({}, passenger, ev);
-      }
-      return passenger;
-    });
+    this.passengerService.updatePassenger(ev)
+      .subscribe((data: Passenger) => {
+        this.passengers = this.passengers.map((passenger: Passenger) => {
+          if (passenger.id === data.id) {
+            passenger = Object.assign({}, passenger, data);
+          }
+          return passenger;
+        });
+      });
   }
 }
