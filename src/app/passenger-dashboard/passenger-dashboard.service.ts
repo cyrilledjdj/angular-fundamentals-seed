@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Passenger } from './models/passenger';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
+const PASSENGER_API = 'assets/db.json';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,8 +13,8 @@ export class PassengerDashboardService {
   constructor(private httpService: HttpClient) {
   }
 
-  getPassengers(): Passenger[] {
-    return [{
+  getPassengers(): Observable<Passenger[]> {
+    /* return [{
       id: 1,
       fullname: 'Stephen',
       checkedIn: true,
@@ -41,6 +44,8 @@ export class PassengerDashboardService {
       checkedIn: false,
       checkInDate: null,
       children: null
-    }];
+    }]; */
+    return this.httpService
+      .get<Passenger[]>(PASSENGER_API, { responseType: 'json' });
   }
 }
