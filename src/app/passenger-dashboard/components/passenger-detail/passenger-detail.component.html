@@ -1,1 +1,18 @@
-<div>Passenger Details</div>
+<div>
+    <span class=status [class.checked-in]=detail.checkedIn></span>
+    <span *ngIf=false class=status
+        [ngClass]="{ 'checked-in' : detail.checkedIn, 'checked-out' : !detail.checkedIn }"></span>
+    <span *ngIf=false class=status
+        [style.backgroundColor]="detail.checkedIn ? '#2ecc71': '#c0392b'"></span>
+    <span *ngIf=false class=status
+        [ngStyle]="{backgroundColor: detail.checkedIn ? '#2ecc71': '#c0392b'}"></span>
+    {{detail.fullname}}
+    <p> {{detail | json}} </p>
+    <div class=date>
+        Check in date:
+        {{detail.checkInDate ? (detail.checkInDate | date: 'MMMM d, y' | uppercase) : 'Not Checked In'}}
+    </div>
+    <div class=children>
+        Children: {{detail.children?.length || 0}}
+    </div>
+</div>
