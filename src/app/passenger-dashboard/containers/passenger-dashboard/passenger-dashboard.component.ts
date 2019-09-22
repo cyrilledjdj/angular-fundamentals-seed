@@ -10,7 +10,6 @@ export class PassengerDashboardComponent implements OnInit {
 
   passengers: Passenger[];
 
-
   constructor() { }
 
   ngOnInit() {
@@ -48,4 +47,14 @@ export class PassengerDashboardComponent implements OnInit {
     }];
   }
 
+  handleRemove(ev: Passenger) {
+    this.passengers = this.passengers.filter(obj => obj !== ev);
+  }
+  handleEdit(ev: Passenger) {
+    this.passengers.forEach(obj => {
+      if (obj.id === ev.id) {
+        obj = ev;
+      }
+    });
+  }
 }

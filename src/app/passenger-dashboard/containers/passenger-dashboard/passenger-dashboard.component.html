@@ -2,6 +2,7 @@
     <passenger-count [items]="passengers"></passenger-count>
     <passenger-detail
         *ngFor="let passenger of passengers; let i = index; let e = even; let o = odd; let f = first; let l = last"
-        [detail]=passenger>
+        [detail]=passenger (remove)=handleRemove($event)
+        (edit)=handleEdit($event)>
     </passenger-detail>
 </div>
