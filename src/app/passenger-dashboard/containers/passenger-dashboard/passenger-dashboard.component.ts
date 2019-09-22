@@ -13,7 +13,6 @@ export class PassengerDashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('ngOnInit')
     this.passengers = [{
       id: 1,
       fullname: 'Stephen',
@@ -51,12 +50,12 @@ export class PassengerDashboardComponent implements OnInit {
     this.passengers = this.passengers.filter((passenger: Passenger) => passenger.id !== ev.id);
   }
   handleEdit(ev: Passenger) {
-    this.passengers.map((passenger: Passenger) => {
+    this.passengers = this.passengers.map((passenger: Passenger) => {
       if (passenger.id === ev.id) {
         // passenger = ev; // Works the same
-        passenger = Object.assign(passenger, passenger);
+        passenger = Object.assign({}, passenger, ev);
       }
+      return passenger;
     });
-    console.log(this.passengers);
   }
 }
