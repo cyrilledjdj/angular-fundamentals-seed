@@ -4,6 +4,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+//npm install json-server and run json-server --watch api/db.json to be able to use this api
 const PASSENGER_API = 'http://localhost:3000/passengers';
 @Injectable({
   providedIn: 'root'
