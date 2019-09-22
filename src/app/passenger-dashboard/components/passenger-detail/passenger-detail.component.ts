@@ -14,14 +14,12 @@ export class PassengerDetailComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnChanges(changes) {
-    console.log(changes);
     if (changes.detail) {
       this.detail = Object.assign({}, changes.detail.currentValue);
     }
   }
 
   ngOnInit() {
-    console.log('ngOnInit PassengerDetail');
   }
 
   onNameChange(value) {
