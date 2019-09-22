@@ -48,13 +48,15 @@ export class PassengerDashboardComponent implements OnInit {
   }
 
   handleRemove(ev: Passenger) {
-    this.passengers = this.passengers.filter(obj => obj !== ev);
+    this.passengers = this.passengers.filter((passenger: Passenger) => passenger.id !== ev.id);
   }
   handleEdit(ev: Passenger) {
-    this.passengers.forEach(obj => {
-      if (obj.id === ev.id) {
-        obj = ev;
+    this.passengers.map((passenger: Passenger) => {
+      if (passenger.id === ev.id) {
+        // passenger = ev; // Works the same
+        passenger = Object.assign(passenger, passenger);
       }
     });
+    console.log(this.passengers);
   }
 }
