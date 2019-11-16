@@ -2,11 +2,17 @@
     <div>{{detail | json}}</div>
     <div>
         Passenger name:
-        <input type="text" name="fullname" id="fullname" [ngModel]="detail?.fullname">
+        <input #fullname="ngModel" required type="text" name="fullname" id="fullname" [ngModel]="detail?.fullname">
+        <div *ngIf="fullname.touched && fullname.errors?.required" class="error">
+            Passenger name is required
+        </div>
     </div>
     <div>
         Passenger ID:
-        <input type="number" name="id" id="id" [ngModel]="detail?.id">
+        <input type="number" required #id="ngModel" name="id" id="id" [ngModel]="detail?.id">
+        <div *ngIf="id.touched && id.errors?.required" class="error">
+            Passenger ID name is required
+        </div>
     </div>
     <div>
         <fieldset>
@@ -45,5 +51,7 @@
             </option>
         </select>
     </div>
-    {{form.value | json}}
+    <div>{{form.value | json}}</div>
+    <div>Valid: {{form.valid | json}}</div>
+    <div>Invalid: {{form.invalid | json}}</div>
 </form>
