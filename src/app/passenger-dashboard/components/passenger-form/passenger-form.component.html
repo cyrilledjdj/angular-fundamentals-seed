@@ -1,4 +1,4 @@
-<form #form="ngForm" novalidate>
+<form class="d-flex flex-column justify-items-stretch" #form="ngForm" novalidate>
     <div>{{detail | json}}</div>
     <div>
         Passenger name:
@@ -7,6 +7,25 @@
     <div>
         Passenger ID:
         <input type="number" name="id" id="id" [ngModel]="detail?.id">
+    </div>
+    <div>
+        <fieldset>
+            <legend>Checked In?</legend>
+            <label>
+                <input type="radio" name="checkedIn" id="checkedIn" [value]=true [ngModel]="detail?.checkedIn"
+                    (ngModelChange)="toggleCheckIn($event)">
+                Yes
+            </label>
+            <label>
+                <input type="radio" name="checkedIn" id="checkedIn" [value]=false [ngModel]="detail?.checkedIn"
+                    (ngModelChange)="toggleCheckIn($event)">
+                No
+            </label>
+        </fieldset>
+        <div *ngIf="form.value.checkedIn">
+            Check in Date:
+            <input readonly type="number" name="checkInDate" id="checkInDate" [ngModel]="detail?.checkInDate">
+        </div>
     </div>
     {{form.value | json}}
 </form>
