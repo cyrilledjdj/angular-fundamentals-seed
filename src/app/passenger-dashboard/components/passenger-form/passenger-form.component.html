@@ -1,4 +1,5 @@
-<form class="d-flex flex-column justify-items-stretch" #form="ngForm" novalidate>
+<form (ngSubmit)="handleSubmit(form.value, form.valid)" class="d-flex flex-column justify-items-stretch" #form="ngForm"
+    novalidate>
     <div>{{detail | json}}</div>
     <div>
         Passenger name:
