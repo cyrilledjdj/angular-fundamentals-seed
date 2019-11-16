@@ -5,7 +5,8 @@
             "fullname": "Steve",
             "checkedIn": true,
             "checkInDate": 1490742000000,
-            "children": null
+            "children": null,
+            "baggage": ""
         },
         {
             "id": 2,
@@ -21,7 +22,16 @@
                     "name": "Chloe",
                     "age": 7
                 }
-            ]
+            ],
+            "baggage": ""
+        },
+        {
+            "id": 3,
+            "fullname": "Todd",
+            "checkedIn": true,
+            "checkInDate": 1490742000000,
+            "children": null,
+            "baggage": ""
         },
         {
             "id": 4,
@@ -33,14 +43,16 @@
                     "name": "Jessica",
                     "age": 1
                 }
-            ]
+            ],
+            "baggage": ""
         },
         {
             "id": 5,
             "fullname": "Tina",
             "checkedIn": false,
             "checkInDate": null,
-            "children": null
+            "children": null,
+            "baggage": ""
         }
     ]
 }
