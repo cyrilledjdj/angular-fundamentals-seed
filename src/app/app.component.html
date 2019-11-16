@@ -1,7 +1,19 @@
-<!-- <div class="app">
-    <button (click)="handleClick()">Change name (Reset)</button>
-    <input>
-    <div>{{name}}</div>
-</div> -->
-
-<router-outlet></router-outlet>
+<div class="app">
+    <nav aria-label="Main navigation">
+        <ul class="d-flex flex-row justify-content-around">
+            <li>
+                <a routerLink="/">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a routerLink="/oops">
+                    404
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <router-outlet></router-outlet>
+    <!-- <passenger-viewer></passenger-viewer> -->
+    <!-- <passenger-dashboard></passenger-dashboard> -->
+</div>
