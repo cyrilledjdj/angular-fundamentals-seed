@@ -12,17 +12,22 @@
         <fieldset>
             <legend>Checked In?</legend>
             <label>
-                <input type="radio" name="checkedIn" id="checkedIn" [value]=true [ngModel]="detail?.checkedIn"
+                <input type="radio" name="checkedIn" id="checkedInTrue" [value]=true [ngModel]="detail?.checkedIn"
                     (ngModelChange)="toggleCheckIn($event)">
                 Yes
             </label>
             <label>
-                <input type="radio" name="checkedIn" id="checkedIn" [value]=false [ngModel]="detail?.checkedIn"
+                <input type="radio" name="checkedIn" id="checkedInFalse" [value]=false [ngModel]="detail?.checkedIn"
                     (ngModelChange)="toggleCheckIn($event)">
                 No
             </label>
         </fieldset>
-        <div *ngIf="form.value.checkedIn">
+        <label>
+            Checked In?
+            <input type="checkbox" name="checkedIn" id="checkedIn" [ngModel]="detail?.checkedIn"
+                (ngModelChange)="toggleCheckIn($event)">
+        </label>
+        <div *ngIf=" form.value.checkedIn">
             Check in Date:
             <input readonly type="number" name="checkInDate" id="checkInDate" [ngModel]="detail?.checkInDate">
         </div>
