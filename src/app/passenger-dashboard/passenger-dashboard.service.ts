@@ -20,6 +20,12 @@ export class PassengerDashboardService {
       .pipe(catchError(error => throwError(error)));
   }
 
+  getPassenger(id: number): Observable<Passenger> {
+    return this.httpService
+      .get<Passenger>(`${PASSENGER_API}/${id}`, { responseType: 'json' })
+      .pipe(catchError(error => throwError(error)));
+  }
+
   updatePassenger(passenger: Passenger): Observable<Passenger> {
     return this.httpService
       .put<Passenger>(`${PASSENGER_API}/${passenger.id}`, passenger, { responseType: 'json' })
