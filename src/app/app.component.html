@@ -1,14 +1,9 @@
 <div class="app">
     <nav aria-label="Main navigation">
         <ul class="d-flex flex-row justify-content-around">
-            <li>
-                <a routerLink="/" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">
-                    Home
-                </a>
-            </li>
-            <li>
-                <a routerLink="/oops" routerLinkActive="active">
-                    404
+            <li *ngFor="let item of nav;">
+                <a [routerLink]="item.link" [routerLinkActiveOptions]="{exact: item.exact}" routerLinkActive="active">
+                    {{item.name}}
                 </a>
             </li>
         </ul>
