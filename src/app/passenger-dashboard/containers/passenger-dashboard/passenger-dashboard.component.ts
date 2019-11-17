@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Passenger } from '../../models/passenger';
 import { PassengerDashboardService } from '../../passenger-dashboard.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'passenger-dashboard',
@@ -11,7 +12,7 @@ export class PassengerDashboardComponent implements OnInit {
 
   passengers: Passenger[];
 
-  constructor(private passengerService: PassengerDashboardService) { }
+  constructor(private passengerService: PassengerDashboardService, private readonly router: Router) { }
 
   ngOnInit() {
     this.passengerService
@@ -35,5 +36,8 @@ export class PassengerDashboardComponent implements OnInit {
           return passenger;
         });
       });
+  }
+  handleView(ev: Passenger) {
+    this.router.navigate(['/passengers', ev.id])
   }
 }

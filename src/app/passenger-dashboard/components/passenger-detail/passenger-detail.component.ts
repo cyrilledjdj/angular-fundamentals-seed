@@ -8,8 +8,9 @@ import { Passenger } from '../../models/passenger';
 })
 export class PassengerDetailComponent implements OnInit, OnChanges {
   @Input() detail: Passenger;
-  @Output() remove: EventEmitter<any> = new EventEmitter();
-  @Output() edit: EventEmitter<any> = new EventEmitter();
+  @Output() remove: EventEmitter<Passenger> = new EventEmitter<Passenger>();
+  @Output() edit: EventEmitter<Passenger> = new EventEmitter<Passenger>();
+  @Output() view: EventEmitter<Passenger> = new EventEmitter<Passenger>();
   editing: boolean = false;
   constructor() { }
 
@@ -35,5 +36,9 @@ export class PassengerDetailComponent implements OnInit, OnChanges {
 
   onRemove() {
     this.remove.emit(this.detail);
+  }
+
+  goToPassenger() {
+    this.view.emit(this.detail);
   }
 }

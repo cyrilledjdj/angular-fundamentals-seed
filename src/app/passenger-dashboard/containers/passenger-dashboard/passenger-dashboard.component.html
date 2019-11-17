@@ -5,7 +5,6 @@
     </div>
     <passenger-detail
         *ngFor="let passenger of passengers; let i = index; let e = even; let o = odd; let f = first; let l = last"
-        [detail]=passenger (remove)=handleRemove($event)
-        (edit)=handleEdit($event)>
+        [detail]=passenger (remove)=handleRemove($event) (edit)=handleEdit($event) (view)="handleView($event)">
     </passenger-detail>
 </div>
