@@ -18,7 +18,11 @@ export class PassengerViewerComponent implements OnInit {
   ngOnInit() {
     this.route.params
       .pipe(
-        switchMap((data: Params) => this.passengerService.getPassenger(data.id))
+        switchMap((data: Params) => this.passengerService.getPassenger(data.id)),
+        catchError(error => {
+          this.router.navigate(['/passengers'])
+          return throwError(error);
+        })
       )
       .subscribe((data: Passenger) => {
         this.passenger = data;
