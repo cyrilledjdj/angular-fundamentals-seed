@@ -9,6 +9,7 @@ import { PassengerDashboardComponent } from './containers/passenger-dashboard/pa
 import { PassengerViewerComponent } from './containers/passenger-viewer/passenger-viewer.component';
 import { PassengerDashboardService } from './passenger-dashboard.service';
 import { PassengerFormComponent } from './components/passenger-form/passenger-form.component';
+import { PassengerDashboardRoutingModule } from './passenger-dashboard-routing.module';
 
 
 
@@ -18,9 +19,9 @@ import { PassengerFormComponent } from './components/passenger-form/passenger-fo
     CommonModule,
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    PassengerDashboardRoutingModule
   ],
-  exports: [PassengerDashboardComponent, PassengerViewerComponent],
   providers: [PassengerDashboardService]
 })
 export class PassengerDashboardModule { }

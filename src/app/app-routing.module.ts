@@ -6,7 +6,8 @@ import { NotFoundComponent } from './not-found.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: '**', component: NotFoundComponent }
+  { path: '**', component: NotFoundComponent },
+  { path: 'passengers', loadChildren: () => import('./passenger-dashboard/passenger-dashboard.module').then(mod => mod.PassengerDashboardModule) }
 ];
 
 @NgModule({

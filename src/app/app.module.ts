@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PassengerDashboardModule } from './passenger-dashboard/passenger-dashboard.module';
 import { HomeComponent } from './home.component';
 import { NotFoundComponent } from './not-found.component';
+import { PassengerDashboardModule } from './passenger-dashboard/passenger-dashboard.module';
 
 
 @NgModule({
@@ -17,8 +17,8 @@ import { NotFoundComponent } from './not-found.component';
   imports: [
     BrowserModule,
     CommonModule,
-    AppRoutingModule,
-    PassengerDashboardModule
+    PassengerDashboardModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
