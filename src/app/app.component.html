@@ -2,12 +2,12 @@
     <nav aria-label="Main navigation">
         <ul class="d-flex flex-row justify-content-around">
             <li>
-                <a routerLink="/">
+                <a routerLink="/" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">
                     Home
                 </a>
             </li>
             <li>
-                <a routerLink="/oops">
+                <a routerLink="/oops" routerLinkActive="active">
                     404
                 </a>
             </li>
